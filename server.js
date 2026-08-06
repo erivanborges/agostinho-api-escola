@@ -7,16 +7,11 @@ const app = express();
 // Define a porta em que o servidor irá escutar as requisições
 const port = 3000;
 
-//const alunoRoutes = require('./src/routes/alunoRoutes');
+const alunoRoutes = require('./src/routes/alunoRoutes');
 
-// Define uma rota GET para o caminho raiz ("/")
-//app.get('/', (req, res) => {
-//  res.send('Hello Word!');
-//});
+app.use(express.json());
 
-//app.use(express.json());
-
-//app.use('/alunos', alunoRoutes);
+app.use('/alunos', alunoRoutes);
 
 // Inicia o servidor na porta definida
 app.listen(port, () => {
