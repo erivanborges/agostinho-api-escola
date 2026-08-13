@@ -12,6 +12,19 @@ const getAlunosById = (req, res) => {
     } else {
         res.json(aluno);
     }
+
 }
 
-module.exports = {getAlunos, getAlunosById};
+const save = (req, res) => {
+    const {nome, email} = req.body;
+
+    if(!nome || !email) {
+        return res.status(400).json({message: 'Nome e E-mail são obrigatórios'});
+    }
+
+    const novoAluno = alunoModel.save({nome, email});
+
+    res.status(201).json(novoAluno);
+}
+
+module.exports = {getAlunos, getAlunosById, save};
