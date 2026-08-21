@@ -1,4 +1,0 @@
-c:
-cd c:
-cd ..
-code --list-extensions > minhas-extensoes.txt
